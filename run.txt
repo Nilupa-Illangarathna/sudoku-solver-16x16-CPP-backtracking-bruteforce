@@ -1,0 +1,2 @@
+g++ -o sudoku_solver sudoku_solver.cpp
+./sudoku_solver input_hex1.txt
