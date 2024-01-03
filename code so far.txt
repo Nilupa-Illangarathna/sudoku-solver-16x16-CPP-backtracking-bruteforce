@@ -195,18 +195,21 @@ int main(int argc, char *argv[]) {
     outputfile = outputfile.substr(0, outputfile.find_last_of(".")) + "_output.txt";
 
     if (solved) {
-        cout << "\nSolution:\n";
-        printMatrix(SOLVED_PUZZLE, "");
+        printMatrix(SOLVED_PUZZLE, "\nOutput");
         dumpMatrix(SOLVED_PUZZLE, outputfile);
     } else {
-        cout << "\nNo solution found for the given puzzle.\n";
+        cout << "$ There is no solution for the given puzzle " << endl;
         dumpMatrix(SOLVED_PUZZLE, outputfile, false);
     }
 
-    auto programTimeEnd = chrono::steady_clock::now();
-    cout << "Total Program Time   : " << chrono::duration<double>(programTimeEnd - programTimeStart).count() << " s\n";
+    cout << setprecision(3) << "\n\n";
+    cout << "$ Total Zeros in input : " << nZeros << "\n";
+    cout << "$ Total Recursive calls: " << totalRecursiveCalls << "\n";
+    cout << "$ Calculation Time     : " << chrono::duration<double>(solvingTimeEnd - solvingTimeStart).count() << " s\n";
 
-    return 0;
+    auto programTimeEnd = chrono::steady_clock::now();
+    cout << "$ Total Program Time   : " << chrono::duration<double>(programTimeEnd - programTimeStart).count() << " s\n";
+    cout << "$ [DONE]\n";
 
     return 0;
 }
